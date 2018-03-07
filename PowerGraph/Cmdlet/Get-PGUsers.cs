@@ -10,13 +10,13 @@ namespace PowerGraph
     {
         protected override void ProcessRecord()
         {
-            var GetAPI = new GetAPI();
+            var GetAPI = new Get_API();
 
-            Users UsersResult = GetAPI.Execute<Users>("v1.0", "users");
+            Users UsersResult = GetAPI.ExecuteGet<Users>("v1.0", "users");
             var CacheUsers = UsersResult.value;
-            if (!System.String.IsNullOrEmpty(UsersResult.odatalink))
+            if (!System.String.IsNullOrEmpty(UsersResult.nextLink))
             {
-                var tmp = GetAPI.Execute<Users>(UsersResult.odatalink);
+                var tmp = GetAPI.ExecuteGet<Users>(UsersResult.nextLink);
                 CacheUsers.AddRange(UsersResult.value);
             }
             WriteObject(CacheUsers);

@@ -21,10 +21,10 @@ namespace PowerGraph.Model
     public class Users
     {
         [JsonProperty("@odata.context")]
-        public string odatacontext;
+        public string context;
 
         [JsonProperty("@odata.nextLink")]
-        public string odatalink;
+        public string nextLink;
 
         public List<User> value;
     }

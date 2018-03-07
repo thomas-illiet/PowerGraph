@@ -8,7 +8,7 @@ namespace PowerGraph
  
     [OutputType(typeof(object))]
     [Cmdlet(VerbsCommon.New, "PGSession")]
-    public class NewPGSession : Cmdlet
+    public class New_PGSession : Cmdlet
     {
         /// Variable
         public static Token token { get; set; }
