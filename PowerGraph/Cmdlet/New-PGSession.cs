@@ -1,24 +1,19 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using PowerGraph.Model;
 using RestSharp;
-using System.Collections.Generic;
 using System.Management.Automation;
-
 
 namespace PowerGraph
 {
-
-    /// ++++++++++++++++++++++++++++++++++++++++++++++++
-    /// + New-PGSession
-    /// ++++++++++++++++++++++++++++++++++++++++++++++++
-	[OutputType(typeof(string))]
+ 
+    [OutputType(typeof(object))]
     [Cmdlet(VerbsCommon.New, "PGSession")]
-    public class GetToken : Cmdlet
+    public class NewPGSession : Cmdlet
     {
+        /// Variable
+        public static Token token { get; set; }
 
-        /// ###########################
-        /// # Parameter
-        /// ###########################
+        /// Parameter
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, Position = 0)]
         public string ClientID { get; set; }
@@ -31,16 +26,14 @@ namespace PowerGraph
         [Parameter(Mandatory = true, Position = 2)]
         public string TenantID { get; set; }
 
-        /// ###########################
-        /// # Script
-        /// ###########################
+        /// Script
         protected override void ProcessRecord()
         {
             // Constants
-            var resource = $"https://login.microsoftonline.com/{TenantID}/oauth2/token";
+            var resource = $"https://login.microsoftonline.com/{TenantID}/oauth2/v2.0/token";
             var scope = "https://graph.microsoft.com/.default";
 
-            // request token
+            // Request token
             var restclient = new RestClient(resource);
             var request = new RestRequest(Method.POST);
             request.AddParameter("client_id", ClientID);
@@ -48,13 +41,14 @@ namespace PowerGraph
             request.AddParameter("grant_type", "client_credentials");
             request.AddParameter("scope", scope);
 
-            // execute the request
+            // Execute the request
             var tResponse = restclient.Execute(request);
             var responseJson = tResponse.Content;
 
-            // get token
-            var token = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["access_token"].ToString();
-            WriteObject(token);
+            // Store token information
+            token = JsonConvert.DeserializeObject<Token>(responseJson);
         }
+
     }
+    
 }

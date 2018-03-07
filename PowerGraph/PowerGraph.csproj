@@ -61,7 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Class\GetAPI.cs" />
+    <Compile Include="Cmdlet\Get-PGUsers.cs" />
+    <Compile Include="Model\Metadata.cs" />
+    <Compile Include="Model\Token.cs" />
+    <Compile Include="Cmdlet\New-PGSession.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
