@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\GetAPI.cs" />
+    <Compile Include="Cmdlet\Get-PGSubscribedSkus.cs" />
     <Compile Include="Cmdlet\Get-PGUserEvents.cs" />
     <Compile Include="Cmdlet\Get-PGUsers.cs" />
     <Compile Include="Model\Events.cs" />
+    <Compile Include="Model\SubscribedSku.cs" />
     <Compile Include="Model\Token.cs" />
     <Compile Include="Cmdlet\New-PGSession.cs" />
     <Compile Include="Model\User.cs" />
