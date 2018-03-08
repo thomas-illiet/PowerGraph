@@ -5,8 +5,8 @@ using System.Management.Automation;
 namespace PowerGraph
 {
     [OutputType(typeof(object))]
-    [Cmdlet(VerbsCommon.Get, "PGUserEvents")]
-    public class Get_PGUserEvents : Cmdlet
+    [Cmdlet(VerbsCommon.Get, "PGUserLicence")]
+    public class Get_PGUserLicence : Cmdlet
     {
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, Position = 0)]
@@ -15,7 +15,7 @@ namespace PowerGraph
         {
             var GetAPI = new Get_API();
 
-            Events UsersResult = GetAPI.ExecuteGet<Events>("v1.0", $"users/{Identity}/events");
+            UserLicences UsersResult = GetAPI.ExecuteGet<UserLicences>("v1.0", $"users/{Identity}/licenseDetails");
             var Cache = UsersResult.value;
             var NextLink = UsersResult.nextLink;
 
@@ -23,7 +23,7 @@ namespace PowerGraph
             {
                 do
                 {
-                    Events UsersResultNext = GetAPI.ExecuteGet<Events>(NextLink);
+                    UserLicences UsersResultNext = GetAPI.ExecuteGet<UserLicences>(NextLink);
                     Cache.AddRange(UsersResultNext.value);
                     NextLink = UsersResultNext.nextLink;
                 } while (NextLink != null);

@@ -2,6 +2,9 @@
 
 namespace PowerGraph.Model
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Token
     {
         public String token_type;
