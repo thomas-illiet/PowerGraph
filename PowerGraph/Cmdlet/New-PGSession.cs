@@ -5,7 +5,7 @@ using System.Management.Automation;
 
 namespace PowerGraph
 {
- 
+
     [OutputType(typeof(object))]
     [Cmdlet(VerbsCommon.New, "PGSession")]
     public class New_PGSession : Cmdlet
@@ -50,5 +50,5 @@ namespace PowerGraph
         }
 
     }
-    
+
 }
