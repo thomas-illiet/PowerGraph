@@ -5,20 +5,25 @@ using System.Collections.Generic;
 namespace PowerGraph.Model
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UserPasswordProfile
     {
         public String password;
-        public bool forceChangePasswordNextSignIn;
+        public bool forceChangePasswordNextSignIn = true;
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UserCreate
     {
-        public bool accountEnabled;
+        public UserCreate()
+        {
+            this.passwordProfile = new UserPasswordProfile();
+        }
+
+        public bool accountEnabled = true;
         public String city;
         public String country;
         public String department;
@@ -40,7 +45,7 @@ namespace PowerGraph.Model
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class User
     {
@@ -57,7 +62,7 @@ namespace PowerGraph.Model
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Users
     {
@@ -69,7 +74,7 @@ namespace PowerGraph.Model
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UserLicencePlan
     {
@@ -81,7 +86,7 @@ namespace PowerGraph.Model
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UserLicence
     {
@@ -92,7 +97,7 @@ namespace PowerGraph.Model
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UserLicences
     {

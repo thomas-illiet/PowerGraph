@@ -13,9 +13,9 @@ namespace PowerGraph
         public string Identity { get; set; }
         protected override void ProcessRecord()
         {
-            var GetAPI = new Get_API();
+            var GraphAPI = new GraphAPI();
 
-            UserLicences UsersResult = GetAPI.ExecuteGet<UserLicences>("v1.0", $"users/{Identity}/licenseDetails");
+            UserLicences UsersResult = GraphAPI.ExecuteGet<UserLicences>("v1.0", $"users/{Identity}/licenseDetails");
             var Cache = UsersResult.value;
             var NextLink = UsersResult.nextLink;
 
@@ -23,7 +23,7 @@ namespace PowerGraph
             {
                 do
                 {
-                    UserLicences UsersResultNext = GetAPI.ExecuteGet<UserLicences>(NextLink);
+                    UserLicences UsersResultNext = GraphAPI.ExecuteGet<UserLicences>(NextLink);
                     Cache.AddRange(UsersResultNext.value);
                     NextLink = UsersResultNext.nextLink;
                 } while (NextLink != null);

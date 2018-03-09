@@ -61,14 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\GetAPI.cs" />
-    <Compile Include="Class\Licence.cs" />
-    <Compile Include="Cmdlet\Add- PGUser.cs" />
+    <Compile Include="Class\ConvertLicenceName.cs" />
+    <Compile Include="Class\GraphAPI.cs" />
+    <Compile Include="Cmdlet\Add-PGUser.cs" />
     <Compile Include="Cmdlet\Get-PGSubscribedSkus.cs" />
     <Compile Include="Cmdlet\Get-PGUserLicence.cs" />
     <Compile Include="Cmdlet\Get-PGUsers.cs" />
     <Compile Include="Cmdlet\Set-PGUserLicence.cs" />
-    <Compile Include="Model\Events.cs" />
     <Compile Include="Model\SubscribedSku.cs" />
     <Compile Include="Model\Token.cs" />
     <Compile Include="Cmdlet\New-PGSession.cs" />

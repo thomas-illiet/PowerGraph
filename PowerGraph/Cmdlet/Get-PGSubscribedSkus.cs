@@ -10,9 +10,9 @@ namespace PowerGraph
 
         protected override void ProcessRecord()
         {
-            var GetAPI = new Get_API();
+            var GraphAPI = new GraphAPI();
 
-            SubscribedSkus UsersResult = GetAPI.ExecuteGet<SubscribedSkus>("v1.0", "subscribedSkus");
+            SubscribedSkus UsersResult = GraphAPI.ExecuteGet<SubscribedSkus>("v1.0", "subscribedSkus");
             var Cache = UsersResult.value;
             var NextLink = UsersResult.nextLink;
 
@@ -20,7 +20,7 @@ namespace PowerGraph
             {
                 do
                 {
-                    SubscribedSkus UsersResultNext = GetAPI.ExecuteGet<SubscribedSkus>(NextLink);
+                    SubscribedSkus UsersResultNext = GraphAPI.ExecuteGet<SubscribedSkus>(NextLink);
                     Cache.AddRange(UsersResultNext.value);
                     NextLink = UsersResultNext.nextLink;
                 } while (NextLink != null);
