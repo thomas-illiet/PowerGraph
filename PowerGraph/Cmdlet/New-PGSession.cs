@@ -11,7 +11,7 @@ namespace PowerGraph
     public class New_PGSession : Cmdlet
     {
         /// Variable
-        public static Token token { get; set; }
+        public static ResponseToken token { get; set; }
 
         /// Parameter
         [ValidateNotNullOrEmpty]
@@ -46,7 +46,7 @@ namespace PowerGraph
             var responseJson = tResponse.Content;
 
             // Store token information
-            token = JsonConvert.DeserializeObject<Token>(responseJson);
+            token = JsonConvert.DeserializeObject<ResponseToken>(responseJson);
         }
 
     }

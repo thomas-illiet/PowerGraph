@@ -12,7 +12,7 @@ namespace PowerGraph
         {
             var GraphAPI = new GraphAPI();
 
-            SubscribedSkus UsersResult = GraphAPI.ExecuteGet<SubscribedSkus>("v1.0", "subscribedSkus");
+            ResponseSubscribedSkus UsersResult = GraphAPI.ExecuteGet<ResponseSubscribedSkus>("v1.0", "subscribedSkus");
             var Cache = UsersResult.value;
             var NextLink = UsersResult.nextLink;
 
@@ -20,7 +20,7 @@ namespace PowerGraph
             {
                 do
                 {
-                    SubscribedSkus UsersResultNext = GraphAPI.ExecuteGet<SubscribedSkus>(NextLink);
+                    ResponseSubscribedSkus UsersResultNext = GraphAPI.ExecuteGet<ResponseSubscribedSkus>(NextLink);
                     Cache.AddRange(UsersResultNext.value);
                     NextLink = UsersResultNext.nextLink;
                 } while (NextLink != null);

@@ -1,7 +1,6 @@
 ﻿using PowerGraph.Model;
-using System.Collections.Generic;
+using System;
 using System.Management.Automation;
-
 
 namespace PowerGraph
 {
@@ -10,29 +9,34 @@ namespace PowerGraph
     public class Add_PGUser : Cmdlet
     {
         [ValidateNotNullOrEmpty]
-        [Parameter(Mandatory = false, Position = 0)]
-        public string userPrincipalName { get; set; }
+        [Parameter(Mandatory = true, Position = 0)]
+        public string UserPrincipalName { get; set; }
 
         [ValidateNotNullOrEmpty]
-        [Parameter(Mandatory = false, Position = 1)]
-        public string password { get; set; }
+        [Parameter(Mandatory = true, Position = 1)]
+        public string Password { get; set; }
 
         [ValidateNotNullOrEmpty]
-        [Parameter(Mandatory = false, Position = 2)]
-        public string displayName { get; set; }
+        [Parameter(Mandatory = true, Position = 2)]
+        public string DisplayName { get; set; }
+
+        [ValidateNotNullOrEmpty]
+        [Parameter(Mandatory = true, Position = 3)]
+        public string MailNickname { get; set; }
         protected override void ProcessRecord()
         {
+            // Parameters
+            RequestUserCreate user = new RequestUserCreate();
+            user.userPrincipalName = UserPrincipalName;
+            user.displayName = DisplayName;
+            user.passwordProfile.password = Password;
+            user.mailNickname = MailNickname;
 
-            UserCreate user = new UserCreate();
-            user.userPrincipalName = "peon@thomas-illiet.fr";
-            user.displayName = "Peon Man";
-            user.passwordProfile.password = "B3stP30n1tsM3!";
-            user.jobTitle = "Peon";
-
-            WriteObject(user);
-
+            // Create User
             var GraphAPI = new GraphAPI();
-            GraphAPI.ExecutePost("https://graph.microsoft.com/v1.0/users", user);
+            ResponseUserCreate Request = GraphAPI.ExecutePost<ResponseUserCreate>("https://graph.microsoft.com/v1.0/users", user);
+            WriteObject(Request);
+
         }
     }
 }

@@ -4,23 +4,15 @@ using System.Collections.Generic;
 
 namespace PowerGraph.Model
 {
-    /// <summary>
-    ///
-    /// </summary>
-    public class UserPasswordProfile
-    {
-        public String password;
-        public bool forceChangePasswordNextSignIn = true;
-    }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class UserCreate
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /// ++ Add-PGUser
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public class RequestUserCreate
     {
-        public UserCreate()
+        public RequestUserCreate()
         {
-            this.passwordProfile = new UserPasswordProfile();
+            this.passwordProfile = new RequestUserPasswordProfile();
         }
 
         public bool accountEnabled = true;
@@ -32,9 +24,9 @@ namespace PowerGraph.Model
         public String jobTitle;
         public String mailNickname;
         public String passwordPolicies;
-        public UserPasswordProfile passwordProfile;
+        public RequestUserPasswordProfile passwordProfile;
         public String officeLocation;
-        public Int16 postalCode;
+        //Bug public Int32 postalCode;
         public String preferredLanguage;
         public String state;
         public String streetAddress;
@@ -44,10 +36,31 @@ namespace PowerGraph.Model
         public String userPrincipalName;
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class User
+    public class RequestUserPasswordProfile
+    {
+        public String password;
+        public bool forceChangePasswordNextSignIn = true;
+    }
+
+    public class ResponseUserCreate
+    {
+        public String id;
+        //public String businessPhones;
+        public String displayName;
+        public String givenName;
+        public String jobTitle;
+        public String mail;
+        public String mobilePhone;
+        public String officeLocation;
+        public String preferredLanguage;
+        public String surname;
+        public String userPrincipalName;
+    }
+
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /// ++ Get-PGUsers
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public class ResponseUser
     {
         public String id;
         public String displayName;
@@ -61,22 +74,19 @@ namespace PowerGraph.Model
         public String userPrincipalName;
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class Users
+    public class ResponseUsers
     {
         [JsonProperty("@odata.context")]
         public string context;
         [JsonProperty("@odata.nextLink")]
         public string nextLink;
-        public List<User> value;
+        public List<ResponseUser> value;
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class UserLicencePlan
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /// ++ Get-PGUserLicence
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public class ResponseUserLicencePlan
     {
         public string servicePlanId;
         public string servicePlanName;
@@ -85,26 +95,20 @@ namespace PowerGraph.Model
         public string displayName { get { return ConvertLicenceName.Get(this.servicePlanName); } }
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class UserLicence
+    public class ResponseUserLicence
     {
         public string skuId;
         public string skuPartNumber;
-        public List<UserLicencePlan> servicePlans;
+        public List<ResponseUserLicencePlan> servicePlans;
         public string displayName { get { return ConvertLicenceName.Get(this.skuPartNumber); } }
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public class UserLicences
+    public class ResponseUserLicences
     {
         [JsonProperty("@odata.context")]
         public string context;
         [JsonProperty("@odata.nextLink")]
         public string nextLink;
-        public List<UserLicence> value;
+        public List<ResponseUserLicence> value;
     }
 }

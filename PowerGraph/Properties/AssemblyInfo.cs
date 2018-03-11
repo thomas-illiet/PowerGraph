@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PowerGraph")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple module to send a query to the Microsoft Graph API with Cmdlet Powershell")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Metsys")]
 [assembly: AssemblyProduct("PowerGraph")]
 [assembly: AssemblyCopyright("Copyright Thomas ILLIET ©  2018")]
 [assembly: AssemblyTrademark("")]

@@ -12,11 +12,11 @@ namespace PowerGraph
         {
             var GraphAPI = new GraphAPI();
 
-            Users UsersResult = GraphAPI.ExecuteGet<Users>("v1.0", "users");
+            ResponseUsers UsersResult = GraphAPI.ExecuteGet<ResponseUsers>("v1.0", "users");
             var CacheUsers = UsersResult.value;
             if (!System.String.IsNullOrEmpty(UsersResult.nextLink))
             {
-                var tmp = GraphAPI.ExecuteGet<Users>(UsersResult.nextLink);
+                var tmp = GraphAPI.ExecuteGet<ResponseUsers>(UsersResult.nextLink);
                 CacheUsers.AddRange(UsersResult.value);
             }
             WriteObject(CacheUsers);

@@ -15,7 +15,7 @@ namespace PowerGraph
         {
             var GraphAPI = new GraphAPI();
 
-            UserLicences UsersResult = GraphAPI.ExecuteGet<UserLicences>("v1.0", $"users/{Identity}/licenseDetails");
+            ResponseUserLicences UsersResult = GraphAPI.ExecuteGet<ResponseUserLicences>("v1.0", $"users/{Identity}/licenseDetails");
             var Cache = UsersResult.value;
             var NextLink = UsersResult.nextLink;
 
@@ -23,7 +23,7 @@ namespace PowerGraph
             {
                 do
                 {
-                    UserLicences UsersResultNext = GraphAPI.ExecuteGet<UserLicences>(NextLink);
+                    ResponseUserLicences UsersResultNext = GraphAPI.ExecuteGet<ResponseUserLicences>(NextLink);
                     Cache.AddRange(UsersResultNext.value);
                     NextLink = UsersResultNext.nextLink;
                 } while (NextLink != null);

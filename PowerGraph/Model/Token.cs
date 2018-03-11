@@ -2,10 +2,10 @@
 
 namespace PowerGraph.Model
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Token
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /// ++ New-PGSession
+    /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public class ResponseToken
     {
         public String token_type;
         public String expires_in;

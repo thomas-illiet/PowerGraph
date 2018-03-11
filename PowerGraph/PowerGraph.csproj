@@ -68,10 +68,11 @@
     <Compile Include="Cmdlet\Get-PGUserLicence.cs" />
     <Compile Include="Cmdlet\Get-PGUsers.cs" />
     <Compile Include="Cmdlet\Set-PGUserLicence.cs" />
+    <Compile Include="Model\AssignLicense.cs" />
     <Compile Include="Model\SubscribedSku.cs" />
     <Compile Include="Model\Token.cs" />
     <Compile Include="Cmdlet\New-PGSession.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

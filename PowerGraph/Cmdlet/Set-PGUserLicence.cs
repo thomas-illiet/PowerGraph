@@ -10,7 +10,11 @@ namespace PowerGraph
     {
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, Position = 0)]
-        public string Identity { get; set; }
+        public string UseruserPrincipalName { get; set; }
+
+        [ValidateNotNullOrEmpty]
+        [Parameter(Mandatory = true, Position = 1)]
+        public string License { get; set; }
         protected override void ProcessRecord()
         {
             WriteObject("11");
