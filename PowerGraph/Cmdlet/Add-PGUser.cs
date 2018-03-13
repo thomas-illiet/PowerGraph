@@ -36,7 +36,6 @@ namespace PowerGraph
             var GraphAPI = new GraphAPI();
             ResponseUserCreate Request = GraphAPI.ExecutePost<ResponseUserCreate>("https://graph.microsoft.com/v1.0/users", user);
             WriteObject(Request);
-
         }
     }
 }

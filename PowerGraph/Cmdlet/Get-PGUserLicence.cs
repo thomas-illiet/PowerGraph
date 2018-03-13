@@ -14,9 +14,7 @@ namespace PowerGraph
         protected override void ProcessRecord()
         {
             var GraphAPI = new GraphAPI();
-
-            Response<ResponseUserLicence> UsersResult = GraphAPI.ExecuteGet<ResponseUserLicence>("v1.0", $"users/{Identity}/licenseDetails");
-            WriteObject(UsersResult);
+            WriteObject(GraphAPI.ExecuteGet<ResponseUserLicence>("v1.0", $"users/{Identity}/licenseDetails"));
         }
     }
 }

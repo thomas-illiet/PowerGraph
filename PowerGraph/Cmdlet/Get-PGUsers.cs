@@ -10,8 +10,7 @@ namespace PowerGraph
         protected override void ProcessRecord()
         {
             var GraphAPI = new GraphAPI();
-            var result = GraphAPI.ExecuteGet<ResponseUser>("v1.0","users/delta");
-            WriteObject(result);
+            WriteObject(GraphAPI.ExecuteGet<ResponseUser>("v1.0", "users"));
         }
     }
 }

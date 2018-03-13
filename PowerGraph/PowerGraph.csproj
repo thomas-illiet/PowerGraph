@@ -70,6 +70,7 @@
     <Compile Include="Cmdlet\Set-PGUserLicence.cs" />
     <Compile Include="Model\AssignLicense.cs" />
     <Compile Include="Model\SubscribedSku.cs" />
+    <Compile Include="Model\Template.cs" />
     <Compile Include="Model\Token.cs" />
     <Compile Include="Cmdlet\New-PGSession.cs" />
     <Compile Include="Model\Users.cs" />

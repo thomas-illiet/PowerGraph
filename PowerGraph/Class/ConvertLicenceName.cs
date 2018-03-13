@@ -7,6 +7,7 @@ namespace PowerGraph
 
         static Dictionary<string, string> _dict = new Dictionary<string, string>
         {
+            {"O365_BUSINESS_ESSENTIALS",             "Office 365 Business Essentials"},
             {"TEAMS1",                               "Microsoft Teams"},
             {"AAD_PREMIUM",                          "Azure Active Directory Premium P1"},
             {"AAD_PREMIUM_P2",                       "Azure Active Directory Premium P2"},

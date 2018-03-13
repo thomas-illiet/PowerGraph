@@ -8,15 +8,6 @@ namespace PowerGraph.Model
     /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     /// ++ Get-PGSubscribedSkus
     /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    public class ResponseSubscribedSkus
-    {
-        [JsonProperty("@odata.context")]
-        public string context;
-        [JsonProperty("@odata.nextLink")]
-        public string nextLink;
-        public List<ResponseSubscribedSku> value;
-    }
-
     public class ResponseSubscribedSku
     {
         public String id;

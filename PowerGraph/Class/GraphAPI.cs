@@ -2,16 +2,15 @@
 using PowerGraph.Model;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 
 namespace PowerGraph
 {
     public class GraphAPI
     {
 
-        /// <summary>
-        /// Made by Quentin D.
-        /// </summary>
+        /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        /// ++ GET
+        /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public Response<T> ExecuteGet<T>(string url, bool followNextLink, int maxNextLink)
         {
             Response<T> result = null;
@@ -41,18 +40,15 @@ namespace PowerGraph
             return result;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public Response<T> ExecuteGet<T>(string version, string method, bool followNextLink = true, int maxNextLink = 100 )
         {
             var Url = string.Format("https://graph.microsoft.com/{0}/{1}", version, method);
             return ExecuteGet<T>(Url, followNextLink, maxNextLink);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
+        /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        /// ++ POST
+        /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public T ExecutePost<T>(string url, Object Parameters)
         {
             var restclient = new RestClient(url);
