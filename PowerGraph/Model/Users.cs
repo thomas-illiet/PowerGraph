@@ -103,6 +103,15 @@ namespace PowerGraph.Model
         public string displayName { get { return ConvertLicenceName.Get(this.skuPartNumber); } }
     }
 
+    public class Response<T>
+    {
+        [JsonProperty("@odata.context")]
+        public string context;
+        [JsonProperty("@odata.nextLink")]
+        public string nextLink;
+        public List<T> value;
+    }
+
     public class ResponseUserLicences
     {
         [JsonProperty("@odata.context")]

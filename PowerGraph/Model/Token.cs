@@ -5,6 +5,14 @@ namespace PowerGraph.Model
     /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     /// ++ New-PGSession
     /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public class RequestToken
+    {
+        public String client_id;
+        public String client_secret;
+        public String grant_type;
+        public String scope;
+    }
+
     public class ResponseToken
     {
         public String token_type;

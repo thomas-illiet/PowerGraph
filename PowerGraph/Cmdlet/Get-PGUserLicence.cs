@@ -15,20 +15,8 @@ namespace PowerGraph
         {
             var GraphAPI = new GraphAPI();
 
-            ResponseUserLicences UsersResult = GraphAPI.ExecuteGet<ResponseUserLicences>("v1.0", $"users/{Identity}/licenseDetails");
-            var Cache = UsersResult.value;
-            var NextLink = UsersResult.nextLink;
-
-            if (!System.String.IsNullOrEmpty(NextLink))
-            {
-                do
-                {
-                    ResponseUserLicences UsersResultNext = GraphAPI.ExecuteGet<ResponseUserLicences>(NextLink);
-                    Cache.AddRange(UsersResultNext.value);
-                    NextLink = UsersResultNext.nextLink;
-                } while (NextLink != null);
-            }
-            WriteObject(Cache);
+            Response<ResponseUserLicence> UsersResult = GraphAPI.ExecuteGet<ResponseUserLicence>("v1.0", $"users/{Identity}/licenseDetails");
+            WriteObject(UsersResult);
         }
     }
 }
