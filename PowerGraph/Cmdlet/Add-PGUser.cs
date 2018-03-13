@@ -1,5 +1,4 @@
 ﻿using PowerGraph.Model;
-using System;
 using System.Management.Automation;
 
 namespace PowerGraph
@@ -23,6 +22,7 @@ namespace PowerGraph
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, Position = 3)]
         public string MailNickname { get; set; }
+
         protected override void ProcessRecord()
         {
             // Parameters

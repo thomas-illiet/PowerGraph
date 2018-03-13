@@ -11,10 +11,11 @@ namespace PowerGraph
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, Position = 0)]
         public string Identity { get; set; }
+
         protected override void ProcessRecord()
         {
             var GraphAPI = new GraphAPI();
-            WriteObject(GraphAPI.ExecuteGet<ResponseUserLicence>("v1.0", $"users/{Identity}/licenseDetails"));
+            WriteObject(GraphAPI.ExecuteGetAll<ResponseUserLicence>("v1.0", $"users/{Identity}/licenseDetails").value);
         }
     }
 }

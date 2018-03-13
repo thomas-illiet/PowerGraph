@@ -1,0 +1,6 @@
+language: csharp
+solution: "./PowerGraph.sln"
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./PowerGraph.sln
+script:
+- xbuild ./PowerGraph.sln

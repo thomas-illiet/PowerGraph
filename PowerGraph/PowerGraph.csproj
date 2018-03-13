@@ -63,10 +63,12 @@
   <ItemGroup>
     <Compile Include="Class\ConvertLicenceName.cs" />
     <Compile Include="Class\GraphAPI.cs" />
+    <Compile Include="Class\Tools.cs" />
     <Compile Include="Cmdlet\Add-PGUser.cs" />
     <Compile Include="Cmdlet\Get-PGSubscribedSkus.cs" />
     <Compile Include="Cmdlet\Get-PGUserLicence.cs" />
     <Compile Include="Cmdlet\Get-PGUsers.cs" />
+    <Compile Include="Cmdlet\Remove-PGUser.cs" />
     <Compile Include="Cmdlet\Set-PGUserLicence.cs" />
     <Compile Include="Model\AssignLicense.cs" />
     <Compile Include="Model\SubscribedSku.cs" />
