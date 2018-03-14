@@ -3,7 +3,7 @@ using System.Management.Automation;
 
 namespace PowerGraph
 {
-    [OutputType(typeof(object))]
+    [OutputType(typeof(ResponseUserCreate))]
     [Cmdlet(VerbsCommon.Add, "PGUser")]
     public class Add_PGUser : Cmdlet
     {
@@ -35,7 +35,7 @@ namespace PowerGraph
             // Create User
             var GraphAPI = new GraphAPI();
             ResponseUserCreate Request = GraphAPI.ExecutePost<ResponseUserCreate>("https://graph.microsoft.com/v1.0/users", user);
-            WriteObject(Request);
+            WriteObject(Request, true);
         }
     }
 }

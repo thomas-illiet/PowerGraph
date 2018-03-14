@@ -3,7 +3,7 @@ using PowerGraph.Model;
 
 namespace PowerGraph
 {
-    [OutputType(typeof(object))]
+    [OutputType(typeof(ResponseSubscribedSku))]
     [Cmdlet(VerbsCommon.Get, "PGSubscribedSkus")]
     public class Get_PGSubscribedSkus : Cmdlet
     {
@@ -11,7 +11,7 @@ namespace PowerGraph
         protected override void ProcessRecord()
         {
             var GraphAPI = new GraphAPI();
-            WriteObject(GraphAPI.ExecuteGetAll<ResponseSubscribedSku>("v1.0", "subscribedSkus").value);
+            WriteObject(GraphAPI.ExecuteGetAll<ResponseSubscribedSku>("v1.0", "subscribedSkus").value, true);
         }
     }
 }
